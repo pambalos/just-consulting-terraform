@@ -1,0 +1,15 @@
+# sensitive files
+.aws
+.kube
+.neon
+.sops.yaml
+
+
+# utils
+.direnv
+flake.lock
+.terraform
+.terraform-cache
+.terragrunt-cache
+.terraform.lock.hcl
+.idea

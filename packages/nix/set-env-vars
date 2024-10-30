@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+BASE_CONFIG="monolith.yaml"
+ROOT="$(pwd)"
+echo "ROOT: $ROOT"
+while [[ ! -f "$ROOT/$BASE_CONFIG" ]] && [[ ! -d "${ROOT}/.git" ]]; do
+  ROOT=$(dirname "$ROOT")
+  echo "ROOT2: $ROOT"
+done
+
+echo "ROOT3: $ROOT"
+echo "${ROOT}/.aws/config"
+export AWS_CONFIG_FILE="${ROOT}/.aws/config"

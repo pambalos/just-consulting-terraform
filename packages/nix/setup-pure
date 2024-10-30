@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+mkdir -p "$HOME/.zsh"
+git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
+brew install zsh-syntax-highlighting
+
+{
+  echo "fpath+=($HOME/.zsh/pure)" >> "$HOME/.zshrc"
+  echo "autoload -U promptinit; promptinit"
+  echo "prompt pure"
+  echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+} >> "$HOME/.zshrc"

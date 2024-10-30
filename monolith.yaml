@@ -1,0 +1,7 @@
+environments_dir: environments
+iac_dir: infrastructure
+repo_url: github.com/pambalos/blog-next-sanity
+repo_name: diagnosy-monolith
+repo_primary_branch: main
+repo_root: /Users/bradleyjustice/Documents/sanity-shop-terraformh
+iac_dir_from_root: infrastructure

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+INFRASTRUCTURE_DIRECTORY="infrastructure"
+ROOT="$(pwd)"
+while [[ ! -d "${ROOT}/${INFRASTRUCTURE_DIRECTORY}" ]] && [[ ! -d "${ROOT}/.git" ]]; do
+  ROOT=$(dirname "$ROOT")
+done
+
+cd "${ROOT}/${INFRASTRUCTURE_DIRECTORY}" || echo "Could not find infrastructure directory"
+
+# copy the common_vars.tf file from aws_tags to the rest of the directories
+VARS_FILE="aws_tags/common_vars.tf"
+for dir in *; do
+  if [[ -d "${dir}" && "${dir}" != "aws_tags" ]]; then
+    # check if common_vars.tf exists in the directory
+    if [[ -f "${dir}/common_vars.tf" ]]; then
+      echo "common_vars.tf already exists in ${dir}"
+    else
+      echo "copying ${VARS_FILE} to ${dir}"
+      cp "${VARS_FILE}" "${dir}/"
+    fi
+  fi
+done

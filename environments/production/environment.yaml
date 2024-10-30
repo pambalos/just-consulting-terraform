@@ -1,0 +1,7 @@
+aws_account_id: "825765422398" # ID of the aws account to use for the aws provider
+aws_profile: "development-superuser" # Name of the AWS CLI profile to use for the aws provider
+
+aws_secondary_account_id: "825765422398" # ID of the aws account to use for the aws_secondary provider
+aws_secondary_profile: "development-superuser" # Name of the AWS CLI profile to use for the aws_secondary provider
+
+environment: "production" # Name of the environment

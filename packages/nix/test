@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+KEYS=$(yq -r 'keys[]' monolith.yaml)
+for key in $KEYS; do
+  VAL=$(yq -r ".$key" monolith.yaml)
+  export "$key=$VAL"
+done
